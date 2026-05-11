@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexAuth | Futuristic Authentication System</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="auth-container">
+        <div class="glass-card">
+            <!-- Alert Messages -->
+            <div id="status-message" class="message"></div>
+
+            <!-- Sign In View -->
+            <section id="signin-view" class="form-view active">
+                <header>
+                    <h1>Welcome Back</h1>
+                    <p class="subtitle">Access your account to continue</p>
+                </header>
+
+                <form id="signin-form">
+                    <div class="input-group">
+                        <label for="signin-email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="signin-email" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signin-password">Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="signin-password" placeholder="••••••••" required>
+                            <i data-lucide="eye" class="toggle-password" onclick="togglePasswordVisibility('signin-password', this)"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Sign In</button>
+
+                    <div class="divider">or continue with</div>
+
+                    <div class="social-logins">
+                        <button type="button" class="btn-social" title="Google">
+                            <i data-lucide="chrome"></i>
+                        </button>
+                        <button type="button" class="btn-social" title="GitHub">
+                            <i data-lucide="github"></i>
+                        </button>
+                        <button type="button" class="btn-social" title="Slack">
+                            <i data-lucide="slack"></i>
+                        </button>
+                    </div>
+
+                    <p class="switch-auth">
+                        Don't have an account? <a href="javascript:void(0)" onclick="switchView('signup-view')">Sign up</a>
+                    </p>
+                </form>
+            </section>
+
+            <!-- Sign Up View -->
+            <section id="signup-view" class="form-view">
+                <header>
+                    <h1>Create Account</h1>
+                    <p class="subtitle">Join the future of authentication</p>
+                </header>
+
+                <form id="signup-form">
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="signup-name" placeholder="John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="signup-email" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="signup-password" placeholder="••••••••" required minlength="8">
+                            <i data-lucide="eye" class="toggle-password" onclick="togglePasswordVisibility('signup-password', this)"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="shield-check"></i>
+                            <input type="password" id="signup-confirm" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Account</button>
+
+                    <div class="divider">or sign up with</div>
+
+                    <div class="social-logins">
+                        <button type="button" class="btn-social" title="Google">
+                            <i data-lucide="chrome"></i>
+                        </button>
+                        <button type="button" class="btn-social" title="GitHub">
+                            <i data-lucide="github"></i>
+                        </button>
+                    </div>
+
+                    <p class="switch-auth">
+                        Already have an account? <a href="javascript:void(0)" onclick="switchView('signin-view')">Sign in</a>
+                    </p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
